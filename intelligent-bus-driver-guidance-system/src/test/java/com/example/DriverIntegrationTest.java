@@ -13,6 +13,7 @@ public class DriverIntegrationTest {
     private DriverRepository repo;
     private DriverService service;
 
+    // Clear the integration test file and set up fresh repo and service before each test.
     @BeforeEach
     public void setUp() throws IOException {
         FileWriter writer = new FileWriter("data/integration-drivers.txt", false);
@@ -23,6 +24,7 @@ public class DriverIntegrationTest {
         service = new DriverService(repo);
     }
 
+    // Integration Test 1: Valid driver is correctly stored and retrieved from the TXT file.
     @Test
     public void testValidDriverIsStoredAndRetrievedCorrectly() {
         Driver driver = new Driver("23@@ab12AB", "Ali Khan", 5, "Heavy",
@@ -37,6 +39,7 @@ public class DriverIntegrationTest {
         assertEquals("Heavy", savedDriver.getLicenseType());
     }
 
+    // Integration Test 2: Invalid driver is rejected by the service and not written to the TXT file.
     @Test
     public void testInvalidDriverIsRejectedAndNotStored() {
         Driver driver = new Driver("10@@ab12AB", "Bad Driver", 5, "Heavy",
@@ -49,6 +52,7 @@ public class DriverIntegrationTest {
         assertNull(savedDriver);
     }
 
+    // Integration Test 3: Updated driver details are correctly persisted to the TXT file.
     @Test
     public void testDriverUpdateIsPersistedCorrectly() {
         Driver oldDriver = new Driver("24@@ab12CD", "Sara Lee", 5, "Medium",
@@ -68,6 +72,7 @@ public class DriverIntegrationTest {
         assertEquals("99|New Street|Melbourne|VIC|Australia", savedDriver.getAddress());
     }
 
+    // Integration Test 4: Driver count in the TXT file is updated correctly after adding multiple drivers.
     @Test
     public void testDriverCountIsUpdatedCorrectly() {
         Driver driver1 = new Driver("25@@ab12EF", "Tom Brown", 3, "Medium",
