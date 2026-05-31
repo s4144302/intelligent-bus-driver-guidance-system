@@ -27,4 +27,4 @@ jobs:
           cache-dependency-path: IntelligentBusDriverGuidanceSystem/pom.xml
 
       - name: Build and run tests
-        run: mvn clean test
+        run: mvn clean test -Dsurefire.useFile=false
