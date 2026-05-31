@@ -1,0 +1,30 @@
+name: Java Maven CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: IntelligentBusDriverGuidanceSystem
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: IntelligentBusDriverGuidanceSystem/pom.xml
+
+      - name: Build and run tests
+        run: mvn clean test
