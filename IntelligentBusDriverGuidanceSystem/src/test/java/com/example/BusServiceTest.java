@@ -61,7 +61,7 @@ public class BusServiceTest {
         BusService service = new BusService(repo);
 
         Bus bus1 = new Bus("12345678", 32, 85.0, "Diesel");
-        Bus bus2 = new Bus("12345678", 40, 90.0, "Electric");
+        Bus bus2 = new Bus("12345678", 40, 90.0, "Electricity");
 
         assertTrue(service.addBus(bus1));
         assertFalse(service.addBus(bus2)); // should reject duplicate ID
@@ -167,7 +167,7 @@ public class BusServiceTest {
 
         Driver driver = new Driver("43@@nb75AS", "Anakin Skywalker", 5, "Heavy",
                 "123|sesamae Street|Melbourne|VIC|Australia", "10-05-1990"); // 5 years experience
-        Bus bus = new Bus("12345678", 30, 100.0, "Electric");
+        Bus bus = new Bus("12345678", 30, 100.0, "Electricity");
 
         assertTrue(service.canDriverOperateBus(driver, bus));
     }
@@ -180,7 +180,7 @@ public class BusServiceTest {
 
         Driver driver = new Driver("43@@nb75AS", "Anakin Skywalker", 4, "Heavy",
                 "123|sesamae Street|Melbourne|VIC|Australia", "10-05-1990"); // 4 years experience
-        Bus bus = new Bus("12345678", 30, 100.0, "Electric");
+        Bus bus = new Bus("12345678", 30, 100.0, "Electricity");
 
         assertFalse(service.canDriverOperateBus(driver, bus));
     }
@@ -193,7 +193,7 @@ public class BusServiceTest {
 
         Driver driver = new Driver("43@@nb75AS", "Anakin Skywalker", 12, "Heavy",
                 "123|sesamae Street|Melbourne|VIC|Australia", "10-05-1990"); // 12 years experience
-        Bus bus = new Bus("12345678", 30, 100.0, "Electric");
+        Bus bus = new Bus("12345678", 30, 100.0, "Electricity");
 
         assertTrue(service.canDriverOperateBus(driver, bus));
     }
@@ -221,7 +221,7 @@ public class BusServiceTest {
 
         Driver driver = new Driver("13@@hn24CB", "Luke Skywalker", 10, "PublicTransport",
                 "123|sesamae Street|Melbourne|VIC|Australia", "10-05-1990");
-        Bus bus = new Bus("12345678", 30, 100.0, "Electric");
+        Bus bus = new Bus("12345678", 30, 100.0, "Electricity");
 
         assertTrue(service.canDriverOperateBus(driver, bus));
     }
@@ -234,7 +234,7 @@ public class BusServiceTest {
 
         Driver driver = new Driver("13@@hn24CB", "Luke Skywalker", 10, "Medium",
                 "123|sesamae Street|Melbourne|VIC|Australia", "10-05-1990");
-        Bus bus = new Bus("12345678", 30, 100.0, "Electric");
+        Bus bus = new Bus("12345678", 30, 100.0, "Electricity");
 
         assertFalse(service.canDriverOperateBus(driver, bus));
     }

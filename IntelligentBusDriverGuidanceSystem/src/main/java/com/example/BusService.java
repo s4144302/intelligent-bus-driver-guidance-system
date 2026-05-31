@@ -32,7 +32,7 @@ public class BusService {
         if(updatedBus.getCapacity() > existingBus.getCapacity()) {
             return false; // bus capacity cannot be increased
         }
-        repository.addBus(updatedBus); // Update bus data
+        repository.updateBus(updatedBus); // Update bus data
         return true;
     }
 
