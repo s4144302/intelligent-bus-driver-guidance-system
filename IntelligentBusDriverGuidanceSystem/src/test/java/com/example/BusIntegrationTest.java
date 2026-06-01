@@ -13,11 +13,11 @@ public class BusIntegrationTest {
     @BeforeEach
     public void setup() throws IOException {
         // Clear the test file before each test to ensure a clean slate
-        FileWriter writer = new FileWriter("data/test-buses.txt", false);
+        FileWriter writer = new FileWriter("data/Integration-buses.txt", false);
         writer.write("");
         writer.close();
 
-        busRepo = new BusRepository("data/test-buses.txt");
+        busRepo = new BusRepository("data/Integration-buses.txt");
         busService = new BusService(busRepo);
     }
 
